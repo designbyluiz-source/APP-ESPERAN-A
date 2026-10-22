@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   appleWebApp: { capable: true, title: "Esperança", statusBarStyle: "default" },
   icons: {
     icon: [{ url: "/favicon.png?v=7273fc1e", type: "image/png" }],
-    apple: "/icons/apple-touch-icon.png?v=7273fc1e",
+    apple: "/icons/apple-touch-icon.png?v=856f28eb",
   },
   title: "Esperança · Igreja Presbiteriana",
   description:
