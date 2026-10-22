@@ -1,0 +1,476 @@
+[
+  {
+    "broken": [],
+    "images": [
+      {
+        "h": 41,
+        "src": "/figma/guest-asset11300X1.png",
+        "w": 169.5546875
+      },
+      {
+        "h": 267,
+        "src": "/figma/guest-umLugarParaPertencer.png",
+        "w": 376
+      },
+      {
+        "h": 1,
+        "src": "/figma/guest-line32.svg",
+        "w": 349.4375
+      },
+      {
+        "h": 182,
+        "src": "/figma/guest-esperancaKids.png",
+        "w": 182
+      },
+      {
+        "h": 22,
+        "src": "/figma/guest-arrowUpRight.svg",
+        "w": 22
+      },
+      {
+        "h": 140,
+        "src": "/figma/guest-bookOpen.svg",
+        "w": 141
+      },
+      {
+        "h": 22,
+        "src": "/figma/guest-arrowUpRight.svg",
+        "w": 22
+      },
+      {
+        "h": 68,
+        "src": "/figma/guest-bookOpen1.svg",
+        "w": 68
+      },
+      {
+        "h": 16,
+        "src": "/figma/guest-chevronRight.svg",
+        "w": 16
+      },
+      {
+        "h": 68,
+        "src": "/figma/guest-heartHandshake.svg",
+        "w": 68
+      },
+      {
+        "h": 16,
+        "src": "/figma/guest-chevronRight1.svg",
+        "w": 16
+      },
+      {
+        "h": 1,
+        "src": "/figma/guest-line32.svg",
+        "w": 349.4375
+      },
+      {
+        "h": 288,
+        "src": "/figma/guest-boasVindasAEsperanca.png",
+        "w": 284
+      },
+      {
+        "h": 22,
+        "src": "/figma/guest-play.svg",
+        "w": 22
+      },
+      {
+        "h": 22,
+        "src": "/figma/guest-arrowUpRight1.svg",
+        "w": 22
+      }
+    ],
+    "overflow": [],
+    "route": "/inicio"
+  },
+  {
+    "broken": [],
+    "images": [
+      {
+        "h": 41,
+        "src": "/figma/member-asset11300X1.png",
+        "w": 169.5546875
+      },
+      {
+        "h": 35,
+        "src": "/figma/member-notification.svg",
+        "w": 35
+      },
+      {
+        "h": 267,
+        "src": "/figma/member-umLugarParaPertencer.png",
+        "w": 376
+      },
+      {
+        "h": 1,
+        "src": "/figma/member-line32.svg",
+        "w": 349.4375
+      },
+      {
+        "h": 182,
+        "src": "/figma/member-esperancaKids.png",
+        "w": 182
+      },
+      {
+        "h": 22,
+        "src": "/figma/member-arrowUpRight.svg",
+        "w": 22
+      },
+      {
+        "h": 140,
+        "src": "/figma/member-bookOpen.svg",
+        "w": 141
+      },
+      {
+        "h": 22,
+        "src": "/figma/member-arrowUpRight.svg",
+        "w": 22
+      },
+      {
+        "h": 68,
+        "src": "/figma/member-bookOpen1.svg",
+        "w": 68
+      },
+      {
+        "h": 16,
+        "src": "/figma/member-chevronRight.svg",
+        "w": 16
+      },
+      {
+        "h": 68,
+        "src": "/figma/member-heartHandshake.svg",
+        "w": 68
+      },
+      {
+        "h": 16,
+        "src": "/figma/member-chevronRight1.svg",
+        "w": 16
+      },
+      {
+        "h": 1,
+        "src": "/figma/member-line32.svg",
+        "w": 349.4375
+      },
+      {
+        "h": 288,
+        "src": "/figma/member-boasVindasAEsperanca.png",
+        "w": 284
+      },
+      {
+        "h": 22,
+        "src": "/figma/member-play.svg",
+        "w": 22
+      },
+      {
+        "h": 22,
+        "src": "/figma/member-arrowUpRight1.svg",
+        "w": 22
+      },
+      {
+        "h": 35,
+        "src": "/figma/member-iconeInicio.svg",
+        "w": 35
+      },
+      {
+        "h": 35,
+        "src": "/figma/member-iconeComunidade.svg",
+        "w": 35
+      },
+      {
+        "h": 35,
+        "src": "/figma/member-iconeServicoComunitario.svg",
+        "w": 35
+      },
+      {
+        "h": 35,
+        "src": "/figma/member-iconeEstudo.svg",
+        "w": 35
+      },
+      {
+        "h": 34,
+        "src": "/figma/member-icon1.svg",
+        "w": 34
+      }
+    ],
+    "overflow": [],
+    "route": "/membro"
+  },
+  {
+    "broken": [],
+    "images": [
+      {
+        "h": 40,
+        "src": "/figma/schedule-chevronLeft.svg",
+        "w": 26
+      },
+      {
+        "h": 25,
+        "src": "/figma/schedule-chevronLeft1.svg",
+        "w": 25
+      },
+      {
+        "h": 25,
+        "src": "/figma/schedule-chevronLeft2.svg",
+        "w": 25
+      },
+      {
+        "h": 1,
+        "src": "/figma/schedule-line31.svg",
+        "w": 349.4375
+      },
+      {
+        "h": 25,
+        "src": "/figma/schedule-icon1.svg",
+        "w": 25
+      },
+      {
+        "h": 25,
+        "src": "/figma/schedule-icon2.svg",
+        "w": 25
+      },
+      {
+        "h": 22,
+        "src": "/figma/schedule-chevronDown.svg",
+        "w": 22
+      },
+      {
+        "h": 22,
+        "src": "/figma/schedule-chevronDown1.svg",
+        "w": 22
+      },
+      {
+        "h": 22,
+        "src": "/figma/schedule-chevronDown1.svg",
+        "w": 22
+      },
+      {
+        "h": 22,
+        "src": "/figma/schedule-chevronDown.svg",
+        "w": 22
+      },
+      {
+        "h": 22,
+        "src": "/figma/schedule-chevronDown1.svg",
+        "w": 22
+      }
+    ],
+    "overflow": [],
+    "route": "/programacao"
+  },
+  {
+    "broken": [],
+    "images": [
+      {
+        "h": 40,
+        "src": "/figma/liturgy-chevronLeft.svg",
+        "w": 26
+      },
+      {
+        "h": 223,
+        "src": "/figma/liturgy-cartaoHero.png",
+        "w": 376
+      },
+      {
+        "h": 25,
+        "src": "/figma/liturgy-chevronLeft1.svg",
+        "w": 25
+      },
+      {
+        "h": 25,
+        "src": "/figma/liturgy-chevronLeft2.svg",
+        "w": 25
+      },
+      {
+        "h": 1,
+        "src": "/figma/liturgy-line31.svg",
+        "w": 349.4375
+      }
+    ],
+    "overflow": [],
+    "route": "/culto"
+  },
+  {
+    "broken": [],
+    "images": [
+      {
+        "h": 40,
+        "src": "/figma/giving-chevronLeft.svg",
+        "w": 26
+      },
+      {
+        "h": 329,
+        "src": "/figma/giving-qrCodeIlustrativoNaoOperacional.svg",
+        "w": 328
+      },
+      {
+        "h": 20,
+        "src": "/figma/giving-copy.svg",
+        "w": 20
+      },
+      {
+        "h": 1,
+        "src": "/figma/giving-line32.svg",
+        "w": 349.4375
+      },
+      {
+        "h": 20,
+        "src": "/figma/giving-copiarBanco.svg",
+        "w": 20
+      },
+      {
+        "h": 20,
+        "src": "/figma/giving-copiarBanco.svg",
+        "w": 20
+      },
+      {
+        "h": 20,
+        "src": "/figma/giving-copiarBanco.svg",
+        "w": 20
+      },
+      {
+        "h": 20,
+        "src": "/figma/giving-copiarBanco.svg",
+        "w": 20
+      },
+      {
+        "h": 20,
+        "src": "/figma/giving-copiarBanco.svg",
+        "w": 20
+      },
+      {
+        "h": 20,
+        "src": "/figma/giving-copiarBanco.svg",
+        "w": 20
+      }
+    ],
+    "overflow": [],
+    "route": "/ofertas"
+  },
+  {
+    "broken": [],
+    "images": [
+      {
+        "h": 726,
+        "src": "/figma/login-logo1Vetorizado1.svg",
+        "w": 510
+      },
+      {
+        "h": 40,
+        "src": "/figma/login-chevronLeft.svg",
+        "w": 26
+      },
+      {
+        "h": 71.8359375,
+        "src": "/figma/login-asset11300X1.png",
+        "w": 297.0859375
+      },
+      {
+        "h": 35,
+        "src": "/figma/login-eye.svg",
+        "w": 35
+      },
+      {
+        "h": 25,
+        "src": "/figma/login-vector.svg",
+        "w": 25
+      }
+    ],
+    "overflow": [],
+    "route": "/entrar"
+  },
+  {
+    "broken": [],
+    "images": [
+      {
+        "h": 41,
+        "src": "/figma/guest-asset11300X1.png",
+        "w": 169.5546875
+      },
+      {
+        "h": 267,
+        "src": "/figma/guest-umLugarParaPertencer.png",
+        "w": 376
+      },
+      {
+        "h": 1,
+        "src": "/figma/guest-line32.svg",
+        "w": 349.4375
+      },
+      {
+        "h": 182,
+        "src": "/figma/guest-esperancaKids.png",
+        "w": 182
+      },
+      {
+        "h": 22,
+        "src": "/figma/guest-arrowUpRight.svg",
+        "w": 22
+      },
+      {
+        "h": 140,
+        "src": "/figma/guest-bookOpen.svg",
+        "w": 141
+      },
+      {
+        "h": 22,
+        "src": "/figma/guest-arrowUpRight.svg",
+        "w": 22
+      },
+      {
+        "h": 68,
+        "src": "/figma/guest-bookOpen1.svg",
+        "w": 68
+      },
+      {
+        "h": 16,
+        "src": "/figma/guest-chevronRight.svg",
+        "w": 16
+      },
+      {
+        "h": 68,
+        "src": "/figma/guest-heartHandshake.svg",
+        "w": 68
+      },
+      {
+        "h": 16,
+        "src": "/figma/guest-chevronRight1.svg",
+        "w": 16
+      },
+      {
+        "h": 1,
+        "src": "/figma/guest-line32.svg",
+        "w": 349.4375
+      },
+      {
+        "h": 288,
+        "src": "/figma/guest-boasVindasAEsperanca.png",
+        "w": 284
+      },
+      {
+        "h": 22,
+        "src": "/figma/guest-play.svg",
+        "w": 22
+      },
+      {
+        "h": 22,
+        "src": "/figma/guest-arrowUpRight1.svg",
+        "w": 22
+      },
+      {
+        "h": 20,
+        "src": "/figma/kids-x.svg",
+        "w": 20
+      },
+      {
+        "h": 18,
+        "src": "/figma/kids-plus.svg",
+        "w": 18
+      },
+      {
+        "h": 22,
+        "src": "/figma/kids-check.svg",
+        "w": 22
+      }
+    ],
+    "overflow": [],
+    "route": "/kids"
+  }
+]
