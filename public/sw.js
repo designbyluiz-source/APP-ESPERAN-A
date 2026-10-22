@@ -1,11 +1,11 @@
 /* Offline fallback only: do not cache member screens, forms or Next RSC responses. */
-const CACHE = "esperanca-offline-v1";
+const CACHE = "esperanca-offline-v2-7273fc1e";
 const FALLBACK = "/offline.html";
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE)
-      .then((cache) => cache.addAll([FALLBACK, "/icons/icon-192.png"])),
+      .then((cache) => cache.addAll([FALLBACK, "/icons/icon-192.png?v=7273fc1e"])),
   );
 });
 self.addEventListener("activate", (event) => {
