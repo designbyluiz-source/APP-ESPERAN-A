@@ -2309,3 +2309,200 @@ button,
 a {
   touch-action: manipulation;
 }
+
+/* Community · Figma 127:186. Mobile carousel follows the home gutters. */
+.community-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 760px;
+  margin-inline: auto;
+}
+.community-body > h1 {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.community-groups {
+  height: 190px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  color: white;
+}
+.community-groups .hero-gradient {
+  opacity: 1;
+  background: linear-gradient(180deg, transparent, #00000036 25%, #000000f0);
+}
+.community-groups h2 {
+  font-size: 36px;
+  line-height: 1.05;
+  font-weight: 500;
+}
+.community-groups h2 em {
+  font-size: 33px;
+}
+.community-groups p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 300;
+}
+.community-groups .pill {
+  flex-shrink: 0;
+}
+.community-access {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.community-feature {
+  height: 166px;
+  text-align: left;
+  color: white;
+  box-shadow: 0 0 13px #0000001a;
+}
+.community-feature .feature-copy h2 {
+  font-size: 29px;
+  line-height: 1.05;
+  font-weight: 500;
+}
+.community-feature .feature-copy span {
+  font-size: 15px;
+  font-weight: 600;
+}
+.community-feature .feature-photo {
+  object-position: center;
+}
+.community-feature-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(151deg, #222 20.165%, transparent 59.611%);
+}
+.activities-card .community-feature-gradient {
+  background: linear-gradient(151deg, #3c3c3c 20.165%, #3c3c3c42 59.611%);
+}
+.community-events {
+  display: flex;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  align-items: center;
+  gap: 8px;
+  height: 68px;
+  padding: 0 20px 0 50px;
+  background: var(--burgundy);
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 0 13px #0000001a;
+}
+.community-events span {
+  flex: 1;
+  font-size: 29px;
+  line-height: 1.05;
+  font-weight: 500;
+}
+.community-calendar {
+  position: absolute;
+  left: -22px;
+  top: 0;
+  z-index: -1;
+}
+.community-leaders > h2 {
+  margin-bottom: 12px;
+  font-size: 23px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.community-leader {
+  width: 284px;
+  height: 288px;
+  justify-content: flex-end;
+  color: #f7f6f5;
+}
+.leader-copy {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 6px;
+}
+.leader-copy h3 {
+  font: italic 27px/1.15 var(--font-serif);
+}
+.leader-copy > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.leader-copy span {
+  font-size: 14px;
+  font-weight: 300;
+}
+.leader-copy strong {
+  font-size: 14px;
+  font-weight: 700;
+}
+.panel-form textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 120px;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 14px;
+  font: inherit;
+  font-size: 16px;
+  background: white;
+  color: var(--ink);
+}
+@media (max-width: 380px) {
+  .community-groups {
+    height: 230px;
+  }
+  .community-groups h2 {
+    font-size: 30px;
+  }
+  .community-groups h2 em {
+    font-size: 28px;
+  }
+  .community-feature {
+    padding: 16px;
+    height: 180px;
+  }
+  .community-feature .feature-copy h2 {
+    font-size: clamp(20px, 6.4vw, 25px);
+  }
+  .community-feature .feature-copy span {
+    font-size: 13px;
+  }
+}
+@media (min-width: 900px) {
+  .community-body {
+    max-width: 1120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .community-body > h1,
+  .community-body > .divider,
+  .community-leaders {
+    grid-column: 1/-1;
+  }
+  .community-groups {
+    height: 300px;
+  }
+  .community-access {
+    gap: 16px;
+  }
+  .community-feature {
+    height: 216px;
+  }
+  .community-leader {
+    width: 100%;
+    height: 320px;
+  }
+}

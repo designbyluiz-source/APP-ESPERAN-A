@@ -1,5 +1,6 @@
 "use client";
 
+import { Community, communityAsset } from "./community";
 import { LoadingPhoto } from "./loading-photo";
 
 import Link from "next/link";
@@ -22,9 +23,11 @@ type Panel =
 export function Home({
   member = false,
   kids = false,
+  community = false,
 }: {
   member?: boolean;
   kids?: boolean;
+  community?: boolean;
 }) {
   const router = useRouter();
   const [panel, setPanel] = useState<Panel>(null);
@@ -42,7 +45,7 @@ export function Home({
       <main
         className={`home-screen ${member ? "member-screen" : ""}`}
         data-sheet-background
-        data-node-id={member ? "106:152" : "106:61"}
+        data-node-id={community ? "127:186" : member ? "106:152" : "106:61"}
       >
         <div className="home-scroll">
           <header className="home-header">
@@ -52,7 +55,11 @@ export function Home({
             >
               <img
                 className="wordmark"
-                src={a.imgAsset11300X1}
+                src={
+                  community
+                    ? communityAsset("wordmark", "png")
+                    : a.imgAsset11300X1
+                }
                 alt="Esperança Igreja Presbiteriana"
               />
             </Link>
@@ -63,7 +70,14 @@ export function Home({
                   className="icon-button"
                   onClick={() => show("notifications")}
                 >
-                  <img src={assets.member.imgNotification} alt="" />
+                  <img
+                    src={
+                      community
+                        ? communityAsset("notification")
+                        : assets.member.imgNotification
+                    }
+                    alt=""
+                  />
                 </button>
                 <button
                   className="avatar"
@@ -79,174 +93,226 @@ export function Home({
               </Link>
             )}
           </header>
-          <div className="home-body">
-            <section className="hero home-hero">
-              <LoadingPhoto
-                className="hero-photo"
-                src={a.imgUmLugarParaPertencer}
-                alt={
-                  member
-                    ? "Pequeno grupo reunido na comunidade"
-                    : "Pessoas da comunidade Esperança conversando"
-                }
-              />
-              <div className="hero-gradient" />
-              <h1>
-                {member ? "Pequenos" : "Um lugar para"}
-                <em>{member ? "Grupos." : "pertencer."}</em>
-              </h1>
-              {member ? (
-                <button
-                  className="pill light group-cta"
-                  onClick={() => show("groups")}
-                >
-                  Ver pequenos grupos disponiveis
-                </button>
-              ) : (
-                <div className="hero-actions">
-                  <button className="pill green" onClick={() => show("join")}>
-                    Quero fazer parte
+          {community ? (
+            <Community onGroups={() => show("groups")} />
+          ) : (
+            <div className="home-body">
+              <section className="hero home-hero">
+                <LoadingPhoto
+                  className="hero-photo"
+                  src={a.imgUmLugarParaPertencer}
+                  alt={
+                    member
+                      ? "Pequeno grupo reunido na comunidade"
+                      : "Pessoas da comunidade Esperança conversando"
+                  }
+                />
+                <div className="hero-gradient" />
+                <h1>
+                  {member ? "Pequenos" : "Um lugar para"}
+                  <em>{member ? "Grupos." : "pertencer."}</em>
+                </h1>
+                {member ? (
+                  <button
+                    className="pill light group-cta"
+                    onClick={() => show("groups")}
+                  >
+                    Ver pequenos grupos disponiveis
                   </button>
-                  <button className="pill light" onClick={() => show("about")}>
-                    Mais sobre nós
-                  </button>
-                </div>
-              )}
-            </section>
-            <Divider src={a.imgLine32} />
-            <div className="quick-access">
-              <div className="feature-grid">
-                <Link
-                  href="/kids"
-                  className="feature-card kids-card"
-                  aria-label="Check-in Esperança Kids"
-                >
-                  <LoadingPhoto
-                    className="feature-photo"
-                    src={a.imgEsperancaKids}
-                    alt="Crianças no Esperança Kids"
-                  />
-                  <div className="kids-gradient" />
-                  <div className="feature-copy">
-                    <span>Check-in</span>
-                    <h2>
-                      Esperança
-                      <br />
-                      Kids
-                    </h2>
+                ) : (
+                  <div className="hero-actions">
+                    <button className="pill green" onClick={() => show("join")}>
+                      Quero fazer parte
+                    </button>
+                    <button
+                      className="pill light"
+                      onClick={() => show("about")}
+                    >
+                      Mais sobre nós
+                    </button>
                   </div>
-                  <RoundIcon src={a.imgArrowUpRight} />
-                </Link>
-                <Link
-                  href="/culto"
-                  className="feature-card worship-card"
-                  aria-label="Acompanhe Nosso Culto"
-                >
-                  <img className="book-decoration" src={a.imgBookOpen} alt="" />
-                  <div className="feature-copy">
-                    <span>Acompanhe</span>
-                    <h2>
-                      Nosso
-                      <br />
-                      Culto
-                    </h2>
-                  </div>
-                  <RoundIcon src={a.imgArrowUpRight} />
-                </Link>
-              </div>
-              <div className="feature-grid">
-                <Link href="/programacao" className="small-card schedule-card">
-                  <img
-                    className="small-decoration"
-                    src={a.imgBookOpen1}
-                    alt=""
-                  />
-                  <span>
-                    Nossa
-                    <br />
-                    Programação
-                  </span>
-                  <img src={a.imgChevronRight} alt="" />
-                </Link>
-                <Link href="/ofertas" className="small-card giving-card">
-                  <img
-                    className="small-decoration"
-                    src={a.imgHeartHandshake}
-                    alt=""
-                  />
-                  <span>
-                    Dizimos
-                    <br />e Ofertas
-                  </span>
-                  <img src={a.imgChevronRight1} alt="" />
-                </Link>
-              </div>
-            </div>
-            <Divider src={a.imgLine32} />
-            <section className="happenings">
-              <h2>Acontece por aqui</h2>
-              <div
-                className="news-carousel"
-                role="region"
-                aria-label="Acontece por aqui"
-                tabIndex={0}
-              >
-                <button
-                  className="news-card welcome-card"
-                  onClick={() => show("about")}
-                >
-                  <LoadingPhoto
-                    className="news-photo"
-                    src={a.imgBoasVindasAEsperanca}
-                    alt="Encontro da Igreja Esperança"
-                  />
-                  <div className="news-gradient" />
-                  <span className="category">NOSSA IGREJA</span>
-                  <div className="news-bottom">
-                    <h3>
-                      Boas-vindas
-                      <br />à Esperança
-                    </h3>
-                    <div>
-                      <span>Um pouco de quem somos</span>
-                      <RoundIcon src={a.imgPlay} />
+                )}
+              </section>
+              <Divider src={a.imgLine32} />
+              <div className="quick-access">
+                <div className="feature-grid">
+                  <Link
+                    href="/kids"
+                    className="feature-card kids-card"
+                    aria-label="Check-in Esperança Kids"
+                  >
+                    <LoadingPhoto
+                      className="feature-photo"
+                      src={a.imgEsperancaKids}
+                      alt="Crianças no Esperança Kids"
+                    />
+                    <div className="kids-gradient" />
+                    <div className="feature-copy">
+                      <span>Check-in</span>
+                      <h2>
+                        Esperança
+                        <br />
+                        Kids
+                      </h2>
                     </div>
-                  </div>
-                </button>
-                <Link href="/programacao" className="news-card next-meeting">
-                  <span className="news-label">CULTO DOMINICAL</span>
-                  <h3>Nosso próximo encontro</h3>
-                  <span className="meeting-time">Domingo · 9h</span>
-                  <RoundIcon src={a.imgArrowUpRight1} />
-                </Link>
+                    <RoundIcon src={a.imgArrowUpRight} />
+                  </Link>
+                  <Link
+                    href="/culto"
+                    className="feature-card worship-card"
+                    aria-label="Acompanhe Nosso Culto"
+                  >
+                    <img
+                      className="book-decoration"
+                      src={a.imgBookOpen}
+                      alt=""
+                    />
+                    <div className="feature-copy">
+                      <span>Acompanhe</span>
+                      <h2>
+                        Nosso
+                        <br />
+                        Culto
+                      </h2>
+                    </div>
+                    <RoundIcon src={a.imgArrowUpRight} />
+                  </Link>
+                </div>
+                <div className="feature-grid">
+                  <Link
+                    href="/programacao"
+                    className="small-card schedule-card"
+                  >
+                    <img
+                      className="small-decoration"
+                      src={a.imgBookOpen1}
+                      alt=""
+                    />
+                    <span>
+                      Nossa
+                      <br />
+                      Programação
+                    </span>
+                    <img src={a.imgChevronRight} alt="" />
+                  </Link>
+                  <Link href="/ofertas" className="small-card giving-card">
+                    <img
+                      className="small-decoration"
+                      src={a.imgHeartHandshake}
+                      alt=""
+                    />
+                    <span>
+                      Dizimos
+                      <br />e Ofertas
+                    </span>
+                    <img src={a.imgChevronRight1} alt="" />
+                  </Link>
+                </div>
               </div>
-            </section>
-          </div>
+              <Divider src={a.imgLine32} />
+              <section className="happenings">
+                <h2>Acontece por aqui</h2>
+                <div
+                  className="news-carousel"
+                  role="region"
+                  aria-label="Acontece por aqui"
+                  tabIndex={0}
+                >
+                  <button
+                    className="news-card welcome-card"
+                    onClick={() => show("about")}
+                  >
+                    <LoadingPhoto
+                      className="news-photo"
+                      src={a.imgBoasVindasAEsperanca}
+                      alt="Encontro da Igreja Esperança"
+                    />
+                    <div className="news-gradient" />
+                    <span className="category">NOSSA IGREJA</span>
+                    <div className="news-bottom">
+                      <h3>
+                        Boas-vindas
+                        <br />à Esperança
+                      </h3>
+                      <div>
+                        <span>Um pouco de quem somos</span>
+                        <RoundIcon src={a.imgPlay} />
+                      </div>
+                    </div>
+                  </button>
+                  <Link href="/programacao" className="news-card next-meeting">
+                    <span className="news-label">CULTO DOMINICAL</span>
+                    <h3>Nosso próximo encontro</h3>
+                    <span className="meeting-time">Domingo · 9h</span>
+                    <RoundIcon src={a.imgArrowUpRight1} />
+                  </Link>
+                </div>
+              </section>
+            </div>
+          )}
         </div>
         {member && (
           <nav className="bottom-nav" aria-label="Navegação principal">
             <Link
-              className="active"
+              className={community ? undefined : "active"}
               href="/membro"
               aria-label="Início"
-              aria-current="page"
+              aria-current={community ? undefined : "page"}
             >
-              <img src={assets.member.imgIconeInicio} alt="" />
+              <img
+                src={
+                  community
+                    ? communityAsset("home")
+                    : assets.member.imgIconeInicio
+                }
+                alt=""
+              />
             </Link>
-            <button aria-label="Comunidade" onClick={() => show("groups")}>
-              <img src={assets.member.imgIconeComunidade} alt="" />
-            </button>
+            <Link
+              aria-label="Comunidade"
+              href="/comunidade"
+              className={community ? "active" : undefined}
+              aria-current={community ? "page" : undefined}
+            >
+              <img
+                src={
+                  community
+                    ? communityAsset("community")
+                    : assets.member.imgIconeComunidade
+                }
+                alt=""
+              />
+            </Link>
             <button
               aria-label="Serviço comunitário"
               onClick={() => show("serve")}
             >
-              <img src={assets.member.imgIconeServicoComunitario} alt="" />
+              <img
+                src={
+                  community
+                    ? communityAsset("service")
+                    : assets.member.imgIconeServicoComunitario
+                }
+                alt=""
+              />
             </button>
             <Link href="/culto" aria-label="Estudo e culto">
-              <img src={assets.member.imgIconeEstudo} alt="" />
+              <img
+                src={
+                  community
+                    ? communityAsset("study")
+                    : assets.member.imgIconeEstudo
+                }
+                alt=""
+              />
             </Link>
             <button aria-label="Mais opções" onClick={() => show("shortcuts")}>
-              <img src={assets.member.imgIcon1} alt="" />
+              <img
+                src={
+                  community ? communityAsset("more") : assets.member.imgIcon1
+                }
+                alt=""
+              />
             </button>
           </nav>
         )}
