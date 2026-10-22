@@ -2506,3 +2506,56 @@ a {
     height: 320px;
   }
 }
+
+/* Updated signed-in home · Figma 106:152. */
+.member-home-title {
+  color: var(--muted);
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 500;
+}
+.member-home .home-hero {
+  height: 227px;
+}
+.member-home .home-hero h2 {
+  font-size: 39px;
+  line-height: 1.05;
+  font-weight: 500;
+}
+.picnic-cta {
+  width: 100%;
+  gap: 6px;
+  padding: 6px 20px;
+  flex-shrink: 0;
+}
+.round-icon.burgundy {
+  background: var(--burgundy);
+}
+.member-home .home-hero .hero-photo {
+  object-position: center 90%;
+}
+.member-home .kids-card .feature-photo {
+  object-position: center bottom;
+}
+@media (max-width: 380px) {
+  .member-home .home-hero h2 {
+    font-size: 32px;
+  }
+  .member-home .picnic-cta {
+    padding-inline: 8px;
+    font-size: 14px;
+  }
+}
+@media (min-width: 900px) {
+  .member-home-title {
+    grid-column: 1/-1;
+    grid-row: 1;
+  }
+  .member-home .home-hero {
+    grid-row: 2;
+    height: 386px;
+  }
+  .member-home .quick-access {
+    grid-row: 2;
+  }
+}

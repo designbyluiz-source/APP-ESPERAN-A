@@ -11,6 +11,7 @@ import { Divider, RoundIcon, Sheet, useToast } from "./ui";
 import { KidsCheckIn } from "./kids-check-in";
 
 type Panel =
+  | "reserve"
   | "about"
   | "join"
   | "groups"
@@ -43,7 +44,7 @@ export function Home({
   return (
     <>
       <main
-        className={`home-screen ${member ? "member-screen" : ""}`}
+        className={`home-screen ${member ? "member-screen" : ""} ${member && !community ? "member-home" : ""}`}
         data-sheet-background
         data-node-id={community ? "127:186" : member ? "106:152" : "106:61"}
       >
@@ -97,27 +98,37 @@ export function Home({
             <Community onGroups={() => show("groups")} />
           ) : (
             <div className="home-body">
+              {member && <h1 className="member-home-title">Home</h1>}
               <section className="hero home-hero">
                 <LoadingPhoto
+                  optimized={member}
+                  sizes="(min-width: 900px) 560px, 100vw"
                   className="hero-photo"
                   src={a.imgUmLugarParaPertencer}
                   alt={
                     member
-                      ? "Pequeno grupo reunido na comunidade"
+                      ? "Comunidade reunida no Picnic Esperança"
                       : "Pessoas da comunidade Esperança conversando"
                   }
                 />
                 <div className="hero-gradient" />
-                <h1>
-                  {member ? "Pequenos" : "Um lugar para"}
-                  <em>{member ? "Grupos." : "pertencer."}</em>
-                </h1>
+                {member ? (
+                  <h2>Picnic Esperança</h2>
+                ) : (
+                  <h1>
+                    Um lugar para<em>pertencer.</em>
+                  </h1>
+                )}
                 {member ? (
                   <button
-                    className="pill light group-cta"
-                    onClick={() => show("groups")}
+                    className="pill light picnic-cta"
+                    onClick={() => show("reserve")}
                   >
-                    Ver pequenos grupos disponiveis
+                    <span>Reservar meu lugar</span>
+                    <RoundIcon
+                      src={assets.member.imgReserveArrow}
+                      className="burgundy"
+                    />
                   </button>
                 ) : (
                   <div className="hero-actions">
@@ -142,6 +153,8 @@ export function Home({
                     aria-label="Check-in Esperança Kids"
                   >
                     <LoadingPhoto
+                      optimized={member}
+                      sizes="(min-width: 900px) 280px, 50vw"
                       className="feature-photo"
                       src={a.imgEsperancaKids}
                       alt="Crianças no Esperança Kids"
@@ -332,6 +345,7 @@ export function Home({
         <Sheet
           title={
             {
+              reserve: "Picnic Esperança",
               about: "Um lugar para pertencer",
               join: "Você é bem-vindo!",
               groups: "Pequenos Grupos",
@@ -343,6 +357,61 @@ export function Home({
           }
           onClose={() => setPanel(null)}
         >
+          {panel === "reserve" && (
+            <div className="panel-content">
+              {sent ? (
+                <div className="confirmation">
+                  <h3>Reserva simulada!</h3>
+                  <p>
+                    Seu lugar foi selecionado nesta demonstração. Nenhuma
+                    inscrição foi enviada ou salva.
+                  </p>
+                  <button
+                    className="primary-action"
+                    onClick={() => setPanel(null)}
+                  >
+                    Concluir
+                  </button>
+                </div>
+              ) : (
+                <form
+                  className="panel-form"
+                  onSubmit={(event) => {
+                    event.preventDefault();
+                    setSent(true);
+                  }}
+                >
+                  <p>Vamos compartilhar um tempo juntos no Picnic Esperança.</p>
+                  <label>
+                    Seu nome
+                    <input
+                      required
+                      name="name"
+                      autoComplete="given-name"
+                      placeholder="Como você se chama?"
+                    />
+                  </label>
+                  <label>
+                    Quantidade de pessoas
+                    <input
+                      required
+                      name="people"
+                      type="number"
+                      min={1}
+                      max={20}
+                      defaultValue={1}
+                      inputMode="numeric"
+                    />
+                  </label>
+                  <small>
+                    Reserva de demonstração. Nenhum dado será enviado ou salvo.
+                    Data e local serão informados pela igreja.
+                  </small>
+                  <button className="primary-action">Confirmar reserva</button>
+                </form>
+              )}
+            </div>
+          )}
           {panel === "about" && (
             <div className="panel-content">
               <img
