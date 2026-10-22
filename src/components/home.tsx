@@ -1,5 +1,6 @@
 "use client";
 
+import { MemberNavigation } from "./member-navigation";
 import { Study, studyAsset } from "./study";
 import { Serve, serveAsset } from "./serve";
 import { Community, communityAsset } from "./community";
@@ -292,84 +293,18 @@ export function Home({
           )}
         </div>
         {member && (
-          <nav className="bottom-nav" aria-label="Navegação principal">
-            <Link
-              className={
-                community || serving || studying ? undefined : "active"
-              }
-              href="/membro"
-              aria-label="Início"
-              aria-current={
-                community || serving || studying ? undefined : "page"
-              }
-            >
-              <img
-                src={
-                  chromeAsset
-                    ? chromeAsset("home", "svg")
-                    : assets.member.imgIconeInicio
-                }
-                alt=""
-              />
-            </Link>
-            <Link
-              aria-label="Comunidade"
-              href="/comunidade"
-              className={community ? "active" : undefined}
-              aria-current={community ? "page" : undefined}
-            >
-              <img
-                src={
-                  chromeAsset
-                    ? chromeAsset("community", "svg")
-                    : assets.member.imgIconeComunidade
-                }
-                alt=""
-              />
-            </Link>
-            <Link
-              href="/servir"
-              aria-label="Serviço comunitário"
-              className={serving ? "active" : undefined}
-              aria-current={serving ? "page" : undefined}
-            >
-              <img
-                src={
-                  studying
-                    ? assets.member.imgIconeServicoComunitario
-                    : chromeAsset
-                      ? chromeAsset("service", "svg")
-                      : assets.member.imgIconeServicoComunitario
-                }
-                alt=""
-              />
-            </Link>
-            <Link
-              href="/estudo"
-              aria-label="Estudo Bíblico"
-              className={studying ? "active study-active" : undefined}
-              aria-current={studying ? "page" : undefined}
-            >
-              <img
-                src={
-                  chromeAsset
-                    ? chromeAsset("study", "svg")
-                    : assets.member.imgIconeEstudo
-                }
-                alt=""
-              />
-            </Link>
-            <button aria-label="Mais opções" onClick={() => show("shortcuts")}>
-              <img
-                src={
-                  chromeAsset
-                    ? chromeAsset("more", "svg")
-                    : assets.member.imgIcon1
-                }
-                alt=""
-              />
-            </button>
-          </nav>
+          <MemberNavigation
+            active={
+              studying
+                ? "study"
+                : serving
+                  ? "service"
+                  : community
+                    ? "community"
+                    : "home"
+            }
+            onMore={() => show("shortcuts")}
+          />
         )}
       </main>
       {kids && (

@@ -2878,9 +2878,6 @@ a {
   top: 0;
   z-index: -1;
 }
-.bottom-nav .study-active img {
-  filter: brightness(0) invert(1);
-}
 @media (max-width: 380px) {
   .study-class-card {
     padding: 20px;
@@ -2974,4 +2971,27 @@ a {
 }
 .app-update button:disabled {
   opacity: 0.65;
+}
+
+/* One canonical icon set and fixed geometry across all member tabs. */
+.bottom-nav > * {
+  color: var(--burgundy);
+  padding: 0;
+  flex-shrink: 0;
+}
+.bottom-nav > .active {
+  color: white;
+}
+.member-nav-icon {
+  display: block;
+  width: 35px;
+  height: 35px;
+  flex: 0 0 35px;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
 }
