@@ -7,8 +7,8 @@ export const assets = {
   },
   guest: {
     imgAsset11300X1: "/figma/guest-asset11300X1.png",
-    imgUmLugarParaPertencer: "/figma/community-original.jpeg",
-    imgEsperancaKids: "/figma/kids-original.png",
+    imgUmLugarParaPertencer: "/figma/community-mobile.webp",
+    imgEsperancaKids: "/figma/kids-mobile.webp",
     imgBoasVindasAEsperanca: "/figma/guest-boasVindasAEsperanca.png",
     imgIcon: "/figma/guest-icon.svg",
     imgWiFi: "/figma/guest-wiFi.svg",
@@ -25,8 +25,8 @@ export const assets = {
   },
   member: {
     imgAsset11300X1: "/figma/member-asset11300X1.png",
-    imgUmLugarParaPertencer: "/figma/groups-original.jpeg",
-    imgEsperancaKids: "/figma/kids-original.png",
+    imgUmLugarParaPertencer: "/figma/groups-mobile.webp",
+    imgEsperancaKids: "/figma/kids-mobile.webp",
     imgBoasVindasAEsperanca: "/figma/member-boasVindasAEsperanca.png",
     imgIcon: "/figma/member-icon.svg",
     imgWiFi: "/figma/member-wiFi.svg",
@@ -49,8 +49,8 @@ export const assets = {
   },
   kids: {
     imgAsset11300X1: "/figma/kids-asset11300X1.png",
-    imgUmLugarParaPertencer: "/figma/community-original.jpeg",
-    imgEsperancaKids: "/figma/kids-original.png",
+    imgUmLugarParaPertencer: "/figma/community-mobile.webp",
+    imgEsperancaKids: "/figma/kids-mobile.webp",
     imgBoasVindasAEsperanca: "/figma/kids-boasVindasAEsperanca.png",
     imgIcon: "/figma/kids-icon.svg",
     imgWiFi: "/figma/kids-wiFi.svg",

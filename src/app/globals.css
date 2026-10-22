@@ -2291,3 +2291,21 @@ label {
     animation: skeleton-reveal 0s linear var(--skeleton-delay) forwards !important;
   }
 }
+
+/* Physical screen cutouts in the installed mobile app. */
+.app-frame {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+.sheet {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.back-button {
+  min-width: 44px;
+  min-height: 44px;
+}
+button,
+a {
+  touch-action: manipulation;
+}
