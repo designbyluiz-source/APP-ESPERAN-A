@@ -15,6 +15,7 @@
   --burgundy: #891e24;
   --gold: #f29d00;
   --canvas: #eee;
+  --skeleton-delay: 350ms;
   --sage: #98c3a5;
   --ink: #353535;
   --muted: #696969;
@@ -2061,7 +2062,7 @@ label {
 /* A fast load unmounts these placeholders before their reveal animation starts. */
 .delayed-skeleton {
   visibility: hidden;
-  animation: skeleton-reveal 0s linear 350ms forwards;
+  animation: skeleton-reveal 0s linear var(--skeleton-delay) forwards;
 }
 @keyframes skeleton-reveal {
   to {
@@ -2287,6 +2288,6 @@ label {
 @media (prefers-reduced-motion: reduce) {
   /* Keep the delay; only the decorative shimmer is disabled. */
   .delayed-skeleton {
-    animation: skeleton-reveal 0s linear 350ms forwards !important;
+    animation: skeleton-reveal 0s linear var(--skeleton-delay) forwards !important;
   }
 }

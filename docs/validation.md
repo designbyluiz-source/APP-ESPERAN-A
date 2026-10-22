@@ -48,3 +48,11 @@ Em 22/10/2026 o projeto foi importado para `Documents/GitHub/APP-ESPERAN-A`, con
 O login foi validado sem rolagem ou elementos fora da tela em 320×568, 390×740, 568×320, 844×390 e 1280×900. Logo, espaçamentos e controles se adaptam à altura; telas baixas em paisagem usam duas colunas.
 
 A esteira Acontece por aqui foi conferida em celular: o contêiner vai de x=0 à borda direita da janela, sem sobra horizontal na página. Um gesto horizontal deslocou o primeiro card até x=-177 e exibiu o segundo por completo, comprovando que a margem do conteúdo não corta a esteira.
+
+## Skeletons condicionais
+
+Adicionados fallbacks de navegação específicos para as telas e placeholders de fotografias com visibilidade atrasada em 350 ms. O atraso não impede a exibição imediata de conteúdo que já chegou.
+
+Conferência com atrasos locais controlados, removida após o teste: imagem rápida terminou antes do limiar e seu placeholder não apareceu; imagem lenta ficou inicialmente com placeholder invisível, mostrou-o após o limiar e o removeu ao concluir. A navegação lenta mostrou o skeleton de página com atraso CSS de 0,35 s; o fallback foi removido ao chegar a página. A preferência de movimento reduzido mantém o atraso e desativa apenas a animação de brilho.
+
+Validação final: TypeScript, formatação e compilação de produção passaram. O Next.js 16.4 emitiu um aviso de vulnerabilidade conhecida e recomendou atualização; a compilação terminou com sucesso após repetir o comando, conforme solicitado pelo próprio diagnóstico. As dependências não foram alteradas neste ajuste de skeletons.

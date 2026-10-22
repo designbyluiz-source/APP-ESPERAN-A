@@ -121,7 +121,7 @@ export function Home({
                   className="feature-card kids-card"
                   aria-label="Check-in Esperança Kids"
                 >
-                  <img
+                  <LoadingPhoto
                     className="feature-photo"
                     src={a.imgEsperancaKids}
                     alt="Crianças no Esperança Kids"

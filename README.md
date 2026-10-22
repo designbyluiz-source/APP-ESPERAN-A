@@ -51,6 +51,12 @@ npm start
 - Os dados de Pix são ilustrativos, como no Figma. Os botões informam que a chave e os dados bancários estão pendentes; não iniciam pagamentos nem copiam a chave fictícia.
 - Ações secundárias abrem painéis de demonstração para apresentação da igreja, interesse em participar, grupos, serviço, notificações e perfil.
 
+## Carregamento lento
+
+Skeletons de páginas e fotografias só ficam visíveis se o carregamento superar 350 ms. Conteúdo rápido não mostra skeleton; não há espera mínima artificial. Imagens em cache são reconhecidas, e placeholders são removidos tanto na conclusão quanto em falha da imagem. As fotografias mantêm o mesmo recorte e proporção. A preferência de movimento reduzido desativa o brilho animado, preservando o atraso de exibição.
+
+O limiar pode ser ajustado em `--skeleton-delay`, em `src/app/globals.css`.
+
 ## Limites desta etapa
 
 Somente front-end. Não há backend, Supabase, autenticação real, envio de e-mails, inscrições, pagamentos ou persistência de dados pessoais. Apenas um marcador de navegação de demonstração é guardado em `sessionStorage`; sair da demonstração remove esse marcador.
