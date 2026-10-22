@@ -1,5 +1,7 @@
 "use client";
 
+import { LoadingPhoto } from "./loading-photo";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -79,7 +81,7 @@ export function Home({
           </header>
           <div className="home-body">
             <section className="hero home-hero">
-              <img
+              <LoadingPhoto
                 className="hero-photo"
                 src={a.imgUmLugarParaPertencer}
                 alt={
@@ -193,7 +195,7 @@ export function Home({
                   className="news-card welcome-card"
                   onClick={() => show("about")}
                 >
-                  <img
+                  <LoadingPhoto
                     className="news-photo"
                     src={a.imgBoasVindasAEsperanca}
                     alt="Encontro da Igreja Esperança"

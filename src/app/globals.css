@@ -2057,3 +2057,236 @@ label {
     font-size: 13px;
   }
 }
+
+/* A fast load unmounts these placeholders before their reveal animation starts. */
+.delayed-skeleton {
+  visibility: hidden;
+  animation: skeleton-reveal 0s linear 350ms forwards;
+}
+@keyframes skeleton-reveal {
+  to {
+    visibility: visible;
+  }
+}
+.skeleton-block {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #dce3dc;
+}
+.skeleton-block::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, #ffffff73, transparent);
+  transform: translateX(-100%);
+  animation: skeleton-sweep 1.4s ease-in-out infinite;
+}
+@keyframes skeleton-sweep {
+  to {
+    transform: translateX(100%);
+  }
+}
+.loading-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.loading-photo > img {
+  z-index: 0;
+}
+.image-skeleton {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+.route-skeleton {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  width: 100%;
+}
+.skeleton-layout {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.skeleton-home .skeleton-layout {
+  max-width: 1184px;
+}
+.skeleton-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.skeleton-brand {
+  width: 170px;
+  height: 41px;
+}
+.skeleton-chip {
+  width: 90px;
+  height: 44px;
+  border-radius: 12px;
+}
+.skeleton-home-grid {
+  display: grid;
+  gap: 24px;
+}
+.skeleton-hero {
+  height: 267px;
+  border-radius: 30px;
+}
+.skeleton-features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.skeleton-features > * {
+  height: 182px;
+  border-radius: 28px;
+}
+.skeleton-features > :nth-child(n + 3) {
+  height: 68px;
+  border-radius: 20px;
+}
+.skeleton-title {
+  width: 200px;
+  height: 28px;
+  max-width: 70%;
+}
+.skeleton-news {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.skeleton-news > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.skeleton-news > div > * {
+  height: 288px;
+  border-radius: 28px;
+}
+.skeleton-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 16px 12px;
+  padding-block: 16px;
+}
+.skeleton-calendar > * {
+  width: 100%;
+  max-width: 44px;
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+.skeleton-list,
+.skeleton-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.skeleton-list > * {
+  height: 90px;
+  border-radius: 24px;
+}
+.skeleton-worship-hero {
+  height: 223px;
+  border-radius: 30px;
+}
+.skeleton-tabs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+.skeleton-tabs > * {
+  width: 90px;
+  height: 46px;
+  border-radius: 999px;
+}
+.skeleton-lines > * {
+  height: 18px;
+}
+.skeleton-short {
+  width: 72%;
+}
+.skeleton-qr {
+  width: min(280px, 100%);
+  aspect-ratio: 1;
+  align-self: center;
+  border-radius: 24px;
+}
+.skeleton-login .skeleton-layout {
+  height: 100%;
+  max-width: 440px;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+.skeleton-login .skeleton-brand {
+  width: clamp(160px, 29dvh, 260px);
+  height: 50px;
+}
+.skeleton-login-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+.skeleton-login-fields > * {
+  height: 50px;
+  border-radius: 20px;
+}
+.skeleton-login-actions {
+  display: flex;
+  width: 100%;
+  gap: 12px;
+}
+.skeleton-login-actions > * {
+  flex: 1;
+  height: 52px;
+}
+.skeleton-footer {
+  width: 80%;
+  height: 16px;
+}
+@media (min-width: 900px) {
+  .skeleton-home-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+  .skeleton-hero {
+    height: 386px;
+  }
+  .skeleton-features {
+    gap: 16px;
+  }
+  .skeleton-features > * {
+    height: 290px;
+  }
+  .skeleton-features > :nth-child(n + 3) {
+    height: 80px;
+  }
+}
+@media (max-width: 430px) {
+  .skeleton-layout {
+    padding: 32px 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Keep the delay; only the decorative shimmer is disabled. */
+  .delayed-skeleton {
+    animation: skeleton-reveal 0s linear 350ms forwards !important;
+  }
+}

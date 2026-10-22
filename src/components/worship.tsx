@@ -1,5 +1,7 @@
 "use client";
 
+import { LoadingPhoto } from "./loading-photo";
+
 import { useState } from "react";
 import { assets } from "@/lib/figma-assets";
 import { scripture, lyrics } from "@/lib/content";
@@ -22,7 +24,7 @@ export function Worship() {
             className={`hero worship-hero ${slide === 2 ? "second-slide" : ""}`}
             aria-label={`Slide ${slide}`}
           >
-            <img
+            <LoadingPhoto
               className="hero-photo"
               src={a.imgCartaoHero}
               alt="Comunidade reunida em um culto da Igreja Esperança"
