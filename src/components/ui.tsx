@@ -72,8 +72,10 @@ export function Sheet({
   useEffect(() => {
     const previous = document.activeElement as HTMLElement | null;
     const element = dialog.current;
-    const background = document.querySelector("[data-sheet-background]");
-    background?.setAttribute("inert", "");
+    const backgrounds = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-sheet-background]"),
+    ).map((element) => ({ element, wasInert: element.hasAttribute("inert") }));
+    backgrounds.forEach(({ element }) => element.setAttribute("inert", ""));
     element?.focus({ preventScroll: true });
     function keydown(event: KeyboardEvent) {
       if (event.key === "Escape") close.current();
@@ -105,7 +107,9 @@ export function Sheet({
     }
     document.addEventListener("keydown", keydown);
     return () => {
-      background?.removeAttribute("inert");
+      backgrounds.forEach(({ element, wasInert }) => {
+        if (!wasInert) element.removeAttribute("inert");
+      });
       document.removeEventListener("keydown", keydown);
       if (previous?.isConnected) previous.focus({ preventScroll: true });
     };

@@ -1,6 +1,5 @@
 "use client";
 
-import { MemberNavigation } from "./member-navigation";
 import { Study, studyAsset } from "./study";
 import { Serve, serveAsset } from "./serve";
 import { Community, communityAsset } from "./community";
@@ -21,7 +20,6 @@ type Panel =
   | "notifications"
   | "profile"
   | "serve"
-  | "shortcuts"
   | null;
 
 export function Home({
@@ -292,20 +290,6 @@ export function Home({
             </div>
           )}
         </div>
-        {member && (
-          <MemberNavigation
-            active={
-              studying
-                ? "study"
-                : serving
-                  ? "service"
-                  : community
-                    ? "community"
-                    : "home"
-            }
-            onMore={() => show("shortcuts")}
-          />
-        )}
       </main>
       {kids && (
         <KidsCheckIn
@@ -329,7 +313,6 @@ export function Home({
               notifications: "Notificações",
               profile: "Meu perfil",
               serve: "Servir com amor",
-              shortcuts: "Como podemos ajudar?",
             }[panel]
           }
           onClose={() => setPanel(null)}
@@ -543,22 +526,6 @@ export function Home({
                   <span>Quero saber como participar →</span>
                 </button>
               ))}
-            </div>
-          )}
-          {panel === "shortcuts" && (
-            <div className="panel-content">
-              <Link className="choice-card" href="/programacao">
-                <strong>Nossa programação</strong>
-              </Link>
-              <Link className="choice-card" href="/kids">
-                <strong>Esperança Kids</strong>
-              </Link>
-              <Link className="choice-card" href="/ofertas">
-                <strong>Dízimos e ofertas</strong>
-              </Link>
-              <Link className="choice-card" href="/abertura">
-                <strong>Ver abertura do app</strong>
-              </Link>
             </div>
           )}
         </Sheet>

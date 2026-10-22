@@ -1,14 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState, type CSSProperties } from "react";
 
-const items = [
+export const memberTabs = [
   { id: "home", href: "/membro", label: "Início" },
   { id: "community", href: "/comunidade", label: "Comunidade" },
   { id: "service", href: "/servir", label: "Serviço comunitário" },
   { id: "study", href: "/estudo", label: "Estudo Bíblico" },
 ] as const;
-type Tab = (typeof items)[number]["id"];
+type Tab = (typeof memberTabs)[number]["id"];
 
 function NavIcon({ name }: { name: Tab | "more" }) {
   return (
@@ -31,15 +32,35 @@ export function MemberNavigation({
   active: Tab;
   onMore: () => void;
 }) {
+  const [pending, setPending] = useState<{ from: Tab; to: Tab } | null>(null);
+  const selected = pending?.from === active ? pending.to : active;
+  useEffect(() => setPending(null), [active]);
+  useEffect(() => {
+    if (!pending) return;
+    const timer = setTimeout(() => setPending(null), 3000);
+    return () => clearTimeout(timer);
+  }, [pending]);
   return (
-    <nav className="bottom-nav" aria-label="Navegação principal">
-      {items.map((item) => (
+    <nav
+      className="bottom-nav"
+      aria-label="Navegação principal"
+      data-sheet-background
+      style={
+        {
+          "--active-index": memberTabs.findIndex(
+            (item) => item.id === selected,
+          ),
+        } as CSSProperties
+      }
+    >
+      {memberTabs.map((item) => (
         <Link
           key={item.id}
           href={item.href}
           aria-label={item.label}
           aria-current={active === item.id ? "page" : undefined}
-          className={active === item.id ? "active" : undefined}
+          className={selected === item.id ? "active" : undefined}
+          onNavigate={() => setPending({ from: active, to: item.id })}
         >
           <NavIcon name={item.id} />
         </Link>
