@@ -1,5 +1,6 @@
 "use client";
 
+import { Serve, serveAsset } from "./serve";
 import { Community, communityAsset } from "./community";
 import { LoadingPhoto } from "./loading-photo";
 
@@ -25,10 +26,12 @@ export function Home({
   member = false,
   kids = false,
   community = false,
+  serving = false,
 }: {
   member?: boolean;
   kids?: boolean;
   community?: boolean;
+  serving?: boolean;
 }) {
   const router = useRouter();
   const [panel, setPanel] = useState<Panel>(null);
@@ -44,9 +47,17 @@ export function Home({
   return (
     <>
       <main
-        className={`home-screen ${member ? "member-screen" : ""} ${member && !community ? "member-home" : ""}`}
+        className={`home-screen ${member ? "member-screen" : ""} ${member && !community && !serving ? "member-home" : ""}`}
         data-sheet-background
-        data-node-id={community ? "127:186" : member ? "106:152" : "106:61"}
+        data-node-id={
+          serving
+            ? "133:463"
+            : community
+              ? "127:186"
+              : member
+                ? "106:152"
+                : "106:61"
+        }
       >
         <div className="home-scroll">
           <header className="home-header">
@@ -57,9 +68,11 @@ export function Home({
               <img
                 className="wordmark"
                 src={
-                  community
-                    ? communityAsset("wordmark", "png")
-                    : a.imgAsset11300X1
+                  serving
+                    ? serveAsset("wordmark", "png")
+                    : community
+                      ? communityAsset("wordmark", "png")
+                      : a.imgAsset11300X1
                 }
                 alt="Esperança Igreja Presbiteriana"
               />
@@ -73,9 +86,11 @@ export function Home({
                 >
                   <img
                     src={
-                      community
-                        ? communityAsset("notification")
-                        : assets.member.imgNotification
+                      serving
+                        ? serveAsset("notification")
+                        : community
+                          ? communityAsset("notification")
+                          : assets.member.imgNotification
                     }
                     alt=""
                   />
@@ -94,7 +109,9 @@ export function Home({
               </Link>
             )}
           </header>
-          {community ? (
+          {serving ? (
+            <Serve />
+          ) : community ? (
             <Community onGroups={() => show("groups")} />
           ) : (
             <div className="home-body">
@@ -267,16 +284,18 @@ export function Home({
         {member && (
           <nav className="bottom-nav" aria-label="Navegação principal">
             <Link
-              className={community ? undefined : "active"}
+              className={community || serving ? undefined : "active"}
               href="/membro"
               aria-label="Início"
-              aria-current={community ? undefined : "page"}
+              aria-current={community || serving ? undefined : "page"}
             >
               <img
                 src={
-                  community
-                    ? communityAsset("home")
-                    : assets.member.imgIconeInicio
+                  serving
+                    ? serveAsset("home")
+                    : community
+                      ? communityAsset("home")
+                      : assets.member.imgIconeInicio
                 }
                 alt=""
               />
@@ -289,32 +308,40 @@ export function Home({
             >
               <img
                 src={
-                  community
-                    ? communityAsset("community")
-                    : assets.member.imgIconeComunidade
+                  serving
+                    ? serveAsset("community")
+                    : community
+                      ? communityAsset("community")
+                      : assets.member.imgIconeComunidade
                 }
                 alt=""
               />
             </Link>
-            <button
+            <Link
+              href="/servir"
               aria-label="Serviço comunitário"
-              onClick={() => show("serve")}
+              className={serving ? "active" : undefined}
+              aria-current={serving ? "page" : undefined}
             >
               <img
                 src={
-                  community
-                    ? communityAsset("service")
-                    : assets.member.imgIconeServicoComunitario
+                  serving
+                    ? serveAsset("service")
+                    : community
+                      ? communityAsset("service")
+                      : assets.member.imgIconeServicoComunitario
                 }
                 alt=""
               />
-            </button>
+            </Link>
             <Link href="/culto" aria-label="Estudo e culto">
               <img
                 src={
-                  community
-                    ? communityAsset("study")
-                    : assets.member.imgIconeEstudo
+                  serving
+                    ? serveAsset("study")
+                    : community
+                      ? communityAsset("study")
+                      : assets.member.imgIconeEstudo
                 }
                 alt=""
               />
@@ -322,7 +349,11 @@ export function Home({
             <button aria-label="Mais opções" onClick={() => show("shortcuts")}>
               <img
                 src={
-                  community ? communityAsset("more") : assets.member.imgIcon1
+                  serving
+                    ? serveAsset("more")
+                    : community
+                      ? communityAsset("more")
+                      : assets.member.imgIcon1
                 }
                 alt=""
               />

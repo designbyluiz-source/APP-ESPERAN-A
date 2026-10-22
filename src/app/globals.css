@@ -2559,3 +2559,183 @@ a {
     grid-row: 2;
   }
 }
+
+/* Serving · Figma 133:463. */
+.serve-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 760px;
+  margin-inline: auto;
+}
+.serve-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--muted);
+}
+.serve-intro h1 {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 36px;
+}
+.serve-intro p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 20px;
+}
+.serve-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.serve-section > h2 {
+  color: var(--muted);
+  font-size: 23px;
+  line-height: 28px;
+  font-weight: 500;
+}
+.ministry-card {
+  width: 100%;
+  min-height: 182px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  text-align: left;
+  color: white;
+}
+.ministry-card.my-ministry {
+  height: 190px;
+}
+.ministry-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent, #00000036 25%, #000000f0);
+}
+.ministry-music .hero-photo {
+  object-position: center bottom;
+}
+.ministry-welcome .hero-photo {
+  object-position: center 74%;
+}
+.ministry-children .hero-photo {
+  object-position: center 86%;
+}
+.ministry-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.ministry-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+.ministry-title h3 {
+  font-size: 36px;
+  line-height: 1.05;
+  font-weight: 500;
+  min-width: 0;
+}
+.ministry-copy p {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 300;
+}
+.ministry-vacancy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  flex-shrink: 0;
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: #f7f6f5;
+  color: var(--green);
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.ministry-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  min-height: 56px;
+  padding: 6px 8px 6px 20px;
+  border-radius: 999px;
+  background: #f7f6f5;
+  color: var(--ink);
+  font-size: 16px;
+}
+.ministry-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 4px;
+  border-radius: 16px;
+  background: var(--canvas);
+}
+.ministry-tabs button {
+  flex: 1;
+  min-height: 44px;
+  border-radius: 12px;
+}
+.ministry-tabs [aria-selected="true"] {
+  background: var(--burgundy);
+  color: white;
+}
+@media (max-width: 380px) {
+  .ministry-card {
+    padding: 20px;
+  }
+  .ministry-title h3 {
+    font-size: clamp(24px, 7.5vw, 29px);
+  }
+  .ministry-vacancy {
+    padding: 6px 9px;
+    font-size: 11px;
+  }
+  .ministry-action {
+    padding-left: 14px;
+    font-size: 14px;
+  }
+}
+@media (min-width: 900px) {
+  .serve-body {
+    max-width: 1120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .serve-intro,
+  .serve-body > .divider {
+    grid-column: 1/-1;
+  }
+  .my-ministries {
+    grid-column: 1;
+    grid-row: 3 / 6;
+  }
+  .other-ministries {
+    grid-column: 2;
+    grid-row: 3 / 6;
+  }
+  .serve-body > .divider:nth-of-type(2) {
+    display: none;
+  }
+  .ministry-card.my-ministry {
+    height: 300px;
+  }
+}
+
+.other-ministries > h2 {
+  line-height: 34.5px;
+}
