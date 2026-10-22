@@ -1,5 +1,6 @@
 "use client";
 
+import { Study, studyAsset } from "./study";
 import { Serve, serveAsset } from "./serve";
 import { Community, communityAsset } from "./community";
 import { LoadingPhoto } from "./loading-photo";
@@ -27,11 +28,13 @@ export function Home({
   kids = false,
   community = false,
   serving = false,
+  studying = false,
 }: {
   member?: boolean;
   kids?: boolean;
   community?: boolean;
   serving?: boolean;
+  studying?: boolean;
 }) {
   const router = useRouter();
   const [panel, setPanel] = useState<Panel>(null);
@@ -39,6 +42,13 @@ export function Home({
   const [selectedGroup, setSelectedGroup] = useState("");
   const { notify, toast } = useToast();
   const a = member ? assets.member : assets.guest;
+  const chromeAsset = studying
+    ? studyAsset
+    : serving
+      ? serveAsset
+      : community
+        ? communityAsset
+        : null;
   function show(next: Panel) {
     setSent(false);
     setSelectedGroup("");
@@ -47,16 +57,18 @@ export function Home({
   return (
     <>
       <main
-        className={`home-screen ${member ? "member-screen" : ""} ${member && !community && !serving ? "member-home" : ""}`}
+        className={`home-screen ${member ? "member-screen" : ""} ${member && !community && !serving && !studying ? "member-home" : ""}`}
         data-sheet-background
         data-node-id={
-          serving
-            ? "133:463"
-            : community
-              ? "127:186"
-              : member
-                ? "106:152"
-                : "106:61"
+          studying
+            ? "136:698"
+            : serving
+              ? "133:463"
+              : community
+                ? "127:186"
+                : member
+                  ? "106:152"
+                  : "106:61"
         }
       >
         <div className="home-scroll">
@@ -68,11 +80,9 @@ export function Home({
               <img
                 className="wordmark"
                 src={
-                  serving
-                    ? serveAsset("wordmark", "png")
-                    : community
-                      ? communityAsset("wordmark", "png")
-                      : a.imgAsset11300X1
+                  chromeAsset
+                    ? chromeAsset("wordmark", "png")
+                    : a.imgAsset11300X1
                 }
                 alt="Esperança Igreja Presbiteriana"
               />
@@ -86,11 +96,9 @@ export function Home({
                 >
                   <img
                     src={
-                      serving
-                        ? serveAsset("notification")
-                        : community
-                          ? communityAsset("notification")
-                          : assets.member.imgNotification
+                      chromeAsset
+                        ? chromeAsset("notification", "svg")
+                        : assets.member.imgNotification
                     }
                     alt=""
                   />
@@ -109,7 +117,9 @@ export function Home({
               </Link>
             )}
           </header>
-          {serving ? (
+          {studying ? (
+            <Study />
+          ) : serving ? (
             <Serve />
           ) : community ? (
             <Community onGroups={() => show("groups")} />
@@ -284,18 +294,20 @@ export function Home({
         {member && (
           <nav className="bottom-nav" aria-label="Navegação principal">
             <Link
-              className={community || serving ? undefined : "active"}
+              className={
+                community || serving || studying ? undefined : "active"
+              }
               href="/membro"
               aria-label="Início"
-              aria-current={community || serving ? undefined : "page"}
+              aria-current={
+                community || serving || studying ? undefined : "page"
+              }
             >
               <img
                 src={
-                  serving
-                    ? serveAsset("home")
-                    : community
-                      ? communityAsset("home")
-                      : assets.member.imgIconeInicio
+                  chromeAsset
+                    ? chromeAsset("home", "svg")
+                    : assets.member.imgIconeInicio
                 }
                 alt=""
               />
@@ -308,11 +320,9 @@ export function Home({
             >
               <img
                 src={
-                  serving
-                    ? serveAsset("community")
-                    : community
-                      ? communityAsset("community")
-                      : assets.member.imgIconeComunidade
+                  chromeAsset
+                    ? chromeAsset("community", "svg")
+                    : assets.member.imgIconeComunidade
                 }
                 alt=""
               />
@@ -325,23 +335,26 @@ export function Home({
             >
               <img
                 src={
-                  serving
-                    ? serveAsset("service")
-                    : community
-                      ? communityAsset("service")
+                  studying
+                    ? assets.member.imgIconeServicoComunitario
+                    : chromeAsset
+                      ? chromeAsset("service", "svg")
                       : assets.member.imgIconeServicoComunitario
                 }
                 alt=""
               />
             </Link>
-            <Link href="/culto" aria-label="Estudo e culto">
+            <Link
+              href="/estudo"
+              aria-label="Estudo Bíblico"
+              className={studying ? "active study-active" : undefined}
+              aria-current={studying ? "page" : undefined}
+            >
               <img
                 src={
-                  serving
-                    ? serveAsset("study")
-                    : community
-                      ? communityAsset("study")
-                      : assets.member.imgIconeEstudo
+                  chromeAsset
+                    ? chromeAsset("study", "svg")
+                    : assets.member.imgIconeEstudo
                 }
                 alt=""
               />
@@ -349,11 +362,9 @@ export function Home({
             <button aria-label="Mais opções" onClick={() => show("shortcuts")}>
               <img
                 src={
-                  serving
-                    ? serveAsset("more")
-                    : community
-                      ? communityAsset("more")
-                      : assets.member.imgIcon1
+                  chromeAsset
+                    ? chromeAsset("more", "svg")
+                    : assets.member.imgIcon1
                 }
                 alt=""
               />

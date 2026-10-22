@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
+import { appVersion } from "./scripts/app-version.mjs";
 
 const config: NextConfig = {
   devIndicators: false,
+  env: { NEXT_PUBLIC_ESPERANCA_VERSION: appVersion() },
   async headers() {
     return [
       {
